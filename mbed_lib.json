@@ -1,9 +1,15 @@
 {
-    "name" : "SSD1306_OLED",
+    "name" : "EPD",
     "config": {
-        "SDA":"P6_1",
-        "SCL":"P6_0",
-        "I2CADDRESS":"0x78",
-        "I2CFREQ":"400000"
+            "MOSI":        "P12_0",
+            "MISO":        "P12_1",
+            "SCLK":        "P12_2",
+            "DISPCS":      "P12_3",
+            "DISPRST":     "P5_2",
+            "DISPBUSY":    "P5_3",
+            "DISCHARGE":   "P5_5",
+            "DISPEN":      "P5_4",
+            "BORDER":      "P5_6",
+            "DISPIOEN":    "P0_2"
     }
 }
