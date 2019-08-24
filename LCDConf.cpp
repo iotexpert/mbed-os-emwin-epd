@@ -45,13 +45,14 @@ Purpose     : Display configuration file for GUIDRV_Bitplains to be
 ---------------------------END-OF-HEADER------------------------------
 */
 
+#include "mbed.h"
 #include <stddef.h>
 
 #include "GUI.h"
 
 #include "GUIDRV_BitPlains.h"
 #include "string.h"
-
+#include "cy_cy8ckit_028_epd.h"
 /*********************************************************************
 *
 *       Layer configuration
@@ -199,6 +200,8 @@ int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData)
     // to be adapted by the customer...
     //
     // ...
+
+    Cy_EINK_Start(15u, wait_ms);
     r = 0;
     break;
 

@@ -53,7 +53,6 @@
 /* Header file includes */
 #include "cy_cy8ckit_028_epd.h"
 
-
 /*******************************************************************************
 * Function Name: cy_eink_api_result Cy_EINK_Start(int8_t temperature,
 *                                       cy_eink_delay_function_t delayFunction)
@@ -240,4 +239,14 @@ void Cy_EINK_ShowFrame(cy_eink_frame_t* prevFrame, cy_eink_frame_t* newFrame,
     }
 }
 
-/* [] END OF FILE */
+
+void Cy_EINK_UpdateDisplay(void *pFrameBuffer, cy_eink_update_t updateMethod, bool powerCycle)
+{
+    static uint8 imageBufferCache[CY_EINK_FRAME_SIZE] = {0};
+
+    /* Update the EInk display */
+    Cy_EINK_ShowFrame(imageBufferCache, (cy_eink_frame_t *)pFrameBuffer, updateMethod, powerCycle);
+
+    /* Copy the EmWin display buffer to the imageBuffer cache*/
+    memcpy(imageBufferCache, pFrameBuffer, CY_EINK_FRAME_SIZE);
+}

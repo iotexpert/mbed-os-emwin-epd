@@ -57,7 +57,6 @@
 
 /* Header file includes */
 #include "pervasive_eink_hardware_driver.h"
-#include <stdio.h>
 
 /* Macros used for E-INK power control */
 #define CY_EINK_OFF                (false)
@@ -102,5 +101,8 @@ cy_eink_api_result  Cy_EINK_Power(bool powerCtrl);
 void Cy_EINK_ShowFrame(cy_eink_frame_t* prevFrame, cy_eink_frame_t* newFrame,
                        cy_eink_update_t updateType, bool powerCycle);
 
+
+void Cy_EINK_UpdateDisplay(void *pEmwinBuffer,cy_eink_update_t updateMethod, bool powerCycle);
+
+
 #endif /* CY_CY8CKIT_028_EPD_H */
-/* [] END OF FILE */

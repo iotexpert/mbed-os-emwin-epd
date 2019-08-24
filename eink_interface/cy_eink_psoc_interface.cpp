@@ -59,16 +59,16 @@
 cy_eink_delay_function_t Cy_EINK_Delay;
 
 /* Define SPI interface to communicate with the EInk driver */
-SPI spi(MBED_CONF_APP_EINK_MOSI, MBED_CONF_APP_EINK_MISO, MBED_CONF_APP_EINK_SCLK);
+SPI spi(MBED_CONF_EPD_MOSI, MBED_CONF_EPD_MISO, MBED_CONF_EPD_SCLK);
 
 /* Define EINK display interface pins */
-DigitalOut DispCs(MBED_CONF_APP_EINK_DISPCS);             /* SPI CS output pin */
-DigitalOut DispRst(MBED_CONF_APP_EINK_DISPRST);         /* Display reset output pin */
-DigitalIn  DispBusy(MBED_CONF_APP_EINK_DISPBUSY);       /* Display busy input pin */
-DigitalOut Discharge(MBED_CONF_APP_EINK_DISCHARGE);     /* Display discharge output pin */
-DigitalOut DispEn(MBED_CONF_APP_EINK_DISPEN);           /* Display enable output pin */
-DigitalOut Border(MBED_CONF_APP_EINK_BORDER);           /* Display border output pin */
-DigitalOut DispIoEn(MBED_CONF_APP_EINK_DISPIOEN);       /* Display IO Enable output pin */
+DigitalOut DispCs(MBED_CONF_EPD_DISPCS);             /* SPI CS output pin */
+DigitalOut DispRst(MBED_CONF_EPD_DISPRST);         /* Display reset output pin */
+DigitalIn  DispBusy(MBED_CONF_EPD_DISPBUSY);       /* Display busy input pin */
+DigitalOut Discharge(MBED_CONF_EPD_DISCHARGE);     /* Display discharge output pin */
+DigitalOut DispEn(MBED_CONF_EPD_DISPEN);           /* Display enable output pin */
+DigitalOut Border(MBED_CONF_EPD_BORDER);           /* Display border output pin */
+DigitalOut DispIoEn(MBED_CONF_EPD_DISPIOEN);       /* Display IO Enable output pin */
 
 /*******************************************************************************
 * Function Name: void CY_EINK_SetCsPin(uint8_t value) 
