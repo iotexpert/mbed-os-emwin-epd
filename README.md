@@ -17,6 +17,27 @@ To use this library you need to add the emWin library to mbed_app.json
             "target.components_add": ["EMWIN_OSNTS"]
         }
 ```
+Here is an example
+```
+#include "mbed.h"
+#include "GUI.h"
+#include "cy_cy8ckit_028_epd.h"
+#include "LCDConf.h"
+
+int main()
+{
+    GUI_Init();
+ 
+    GUI_SetColor(GUI_BLACK);
+    GUI_SetBkColor(GUI_WHITE);
+    GUI_Clear();
+    GUI_SetFont(GUI_FONT_32B_1);
+    GUI_SetTextAlign(GUI_TA_CENTER);
+    GUI_DispStringAt("Hello World", GUI_GetScreenSizeX()/2,GUI_GetScreenSizeY()/2 - 16);
+
+    Cy_EINK_UpdateDisplay(LCD_GetDisplayBuffer(),CY_EINK_FULL_4STAGE, true);
+}
+```
 If you need to use it for a different kit you can add pins using the target overides like this:
 ```json
 "target_overrides": {
@@ -29,8 +50,19 @@ If you need to use it for a different kit you can add pins using the target over
     }
 ```
 All of the pins are defined in mbed_lib.json
-```json
 {
-
+    "name" : "EPD",
+    "config": {
+            "MOSI":        "P12_0",
+            "MISO":        "P12_1",
+            "SCLK":        "P12_2",
+            "DISPCS":      "P12_3",
+            "DISPRST":     "P5_2",
+            "DISPBUSY":    "P5_3",
+            "DISCHARGE":   "P5_5",
+            "DISPEN":      "P5_4",
+            "BORDER":      "P5_6",
+            "DISPIOEN":    "P0_2"
+    }
 }
 ```
