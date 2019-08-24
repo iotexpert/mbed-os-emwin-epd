@@ -10,6 +10,7 @@ To use these files you should
 The pins are correct for the targets
 * CY8CKIT062_BT
 * CY8CKIT062_WIFI_BT
+* CY8CKIT_062S2_43012
 
 To use this library you need to add the emWin library to mbed_app.json
 ```json
@@ -41,7 +42,7 @@ int main()
     GUI_Clear();
     GUI_SetFont(GUI_FONT_32B_1);
     GUI_SetTextAlign(GUI_TA_CENTER);
-    GUI_DispStringAt("Hello World", GUI_GetScreenSizeX()/2,GUI_GetScreenSizeY()/2 - 16);
+    GUI_DispStringAt("Hello World", GUI_GetScreenSizeX()/2,GUI_GetScreenSizeY()/2 - GUI_GetFontSizeY()/2);
 
     Cy_EINK_UpdateDisplay(LCD_GetDisplayBuffer(),CY_EINK_FULL_4STAGE, true);
 }
@@ -58,6 +59,7 @@ If you need to use it for a different kit you can add pins using the target over
     }
 ```
 All of the pins are defined in mbed_lib.json
+```
 {
     "name" : "EPD",
     "config": {
@@ -71,6 +73,12 @@ All of the pins are defined in mbed_lib.json
             "DISPEN":      "P5_4",
             "BORDER":      "P5_6",
             "DISPIOEN":    "P0_2"
+    },
+
+    "target_overrides": {
+        "CY8CKIT_062S2_43012" : {
+            "DISPIOEN":    "P5_7"
+        }
     }
 }
 ```
