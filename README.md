@@ -13,10 +13,13 @@ The pins are correct for the targets
 
 To use this library you need to add the emWin library to mbed_app.json
 ```json
-"target_overrides": {
+{
+    "target_overrides": {
         "*": {
             "target.components_add": ["EMWIN_OSNTS"]
         }
+    }
+}
 ```
 This implementation uses the Segger BitPlains LCD driver which just writes data into an SRAM FrameBuffer.  The application is then responsible for dumping the Frame Buffer to the screen.  This can be done by calling
 ```
