@@ -11,5 +11,11 @@
             "DISPEN":      "P5_4",
             "BORDER":      "P5_6",
             "DISPIOEN":    "P0_2"
+    },
+
+    "target_overrides": {
+        "CY8CKIT_062S2_43012" : {
+            "DISPIOEN":    "P5_7"
+        }
     }
 }
